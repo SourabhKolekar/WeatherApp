@@ -1,10 +1,3 @@
-//
-//  weatherApi.swift
-//  weatherApp
-//
-//  Created by Sourabh on 19/5/19.
-//  Copyright © 2019 Sourabh. All rights reserved.
-//
 
 import Foundation
 
@@ -37,6 +30,4 @@ struct ForecastData:Codable {
         case forecastTemperatureMin = "temperatureMin"
         
     }
-
-    
 }

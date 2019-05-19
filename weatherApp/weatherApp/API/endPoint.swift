@@ -15,7 +15,7 @@ let locationLong="144.96332"
 
 enum weatherEndpoint: endPoint{
 
-    case foreCast(latitude: Double, longitude: Double)
+    case foreCast(latitude: String, longitude: String)
     
     var baseUrl: String
     {

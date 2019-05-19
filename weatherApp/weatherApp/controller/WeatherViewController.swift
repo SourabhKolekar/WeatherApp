@@ -1,69 +1,77 @@
+//
+//  WeatherViewController.swift
+//  weatherApp
+//
+//  Created by Sourabh on 20/5/19.
+//  Copyright © 2019 Sourabh. All rights reserved.
+//
+
 import UIKit
+import Alamofire
 
-class WeatherViewController: UITableViewController {
+class WeatherViewController: UIViewController {
 
+    //outlets
+    @IBOutlet weak var tableview: UITableView!
+    
+    
+    //variables
+    var forecastWeather:ForecastWeather!
+    var forecastArray = [ForecastWeather]()
+    
+    
+    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        callDelegates()
     }
-
-    // MARK: - Table view data source
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    override func viewDidAppear(_ animated: Bool) {
+        downloadForecastWeatherData {
+            print("data downloaded")
+        }
     }
+    
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath)
+    func callDelegates(){
+        tableview.delegate=self
+        tableview.dataSource=self
+    }
+    
 
+    func downloadForecastWeatherData(completed: @escaping downloadCompletionHandler) {
+        Alamofire.request(weatherForecast_API_URL).responseJSON { (response) in
+            let result = response.result
+            if let dictionary=result.value as? Dictionary<String,AnyObject>{
+                if let list=dictionary["list"] as? [Dictionary<String,AnyObject>]{
+                    for item in list {
+                        let forecast = ForecastWeather(weatherDict: item)
+                        self.forecastArray.append(forecast)
+                    }
+                    self.tableview.reloadData()
+                }
+            }
+            completed()
+        }
+    }
+    
+}
 
+extension WeatherViewController:UITableViewDelegate,UITableViewDataSource
+{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableview.dequeueReusableCell(withIdentifier: "forecastCell") as! ForecastCell
+        cell.configureCell(forecastData: forecastArray[indexPath.row])
         return cell
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return forecastArray.count
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
