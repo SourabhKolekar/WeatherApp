@@ -70,11 +70,101 @@
                     <navigationItem key="navigationItem" title="Weather App" id="stc-Kq-xag"/>
                     <connections>
                         <outlet property="tableview" destination="7eM-r7-vRN" id="zWc-Gt-FS3"/>
+                        <segue destination="CXT-Uu-Awn" kind="show" identifier="showdetails" id="o9c-G9-ySW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LGw-UI-irH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2412" y="-510.49475262368821"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="6h4-sr-E2l">
+            <objects>
+                <viewController id="CXT-Uu-Awn" customClass="DetailsViewController" customModule="weatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fDK-8O-0MW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day of The Forecast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5M-KU-GqE">
+                                <rect key="frame" x="16" y="95" width="154" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXR-kA-6lR">
+                                <rect key="frame" x="257" y="95" width="62" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCh-Wr-NM9">
+                                <rect key="frame" x="16" y="149" width="98" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2w-hf-Gr5">
+                                <rect key="frame" x="257" y="149" width="21" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Air Pressure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kp2-MG-Csf">
+                                <rect key="frame" x="16" y="214" width="93" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 hpa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1WZ-Iy-bK9">
+                                <rect key="frame" x="257" y="214" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhH-Tc-l5o">
+                                <rect key="frame" x="16" y="282" width="69" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRM-ni-CwN">
+                                <rect key="frame" x="257" y="282" width="35" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.92105452501007368" blue="0.71333579540884129" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Kp2-MG-Csf" firstAttribute="baseline" secondItem="1WZ-Iy-bK9" secondAttribute="baseline" id="99H-mf-TXJ"/>
+                            <constraint firstItem="1WZ-Iy-bK9" firstAttribute="leading" secondItem="kRM-ni-CwN" secondAttribute="leading" id="Ekv-k3-ZSr"/>
+                            <constraint firstItem="Kp2-MG-Csf" firstAttribute="top" secondItem="dCh-Wr-NM9" secondAttribute="bottom" constant="44" id="GUl-TC-BEQ"/>
+                            <constraint firstItem="L2w-hf-Gr5" firstAttribute="leading" secondItem="1WZ-Iy-bK9" secondAttribute="leading" id="H8P-eH-JYU"/>
+                            <constraint firstItem="dCh-Wr-NM9" firstAttribute="baseline" secondItem="L2w-hf-Gr5" secondAttribute="baseline" id="I14-a6-HfL"/>
+                            <constraint firstItem="Kp2-MG-Csf" firstAttribute="leading" secondItem="EhH-Tc-l5o" secondAttribute="leading" id="R8w-1s-G36"/>
+                            <constraint firstItem="w5M-KU-GqE" firstAttribute="baseline" secondItem="iXR-kA-6lR" secondAttribute="baseline" id="X4E-8Q-zlE"/>
+                            <constraint firstItem="dCh-Wr-NM9" firstAttribute="leading" secondItem="Kp2-MG-Csf" secondAttribute="leading" id="b1K-F3-mrR"/>
+                            <constraint firstItem="iXR-kA-6lR" firstAttribute="leading" secondItem="w5M-KU-GqE" secondAttribute="trailing" constant="87" id="cgz-HA-HCY"/>
+                            <constraint firstItem="dCh-Wr-NM9" firstAttribute="top" secondItem="w5M-KU-GqE" secondAttribute="bottom" constant="33" id="eVb-V2-x32"/>
+                            <constraint firstItem="w5M-KU-GqE" firstAttribute="leading" secondItem="fDK-8O-0MW" secondAttribute="leadingMargin" id="i7t-eG-81Z"/>
+                            <constraint firstItem="EhH-Tc-l5o" firstAttribute="top" secondItem="Kp2-MG-Csf" secondAttribute="bottom" constant="47" id="kZE-r3-6fK"/>
+                            <constraint firstItem="w5M-KU-GqE" firstAttribute="top" secondItem="BM6-y7-Ndz" secondAttribute="top" constant="31" id="l4z-fe-ktG"/>
+                            <constraint firstItem="w5M-KU-GqE" firstAttribute="leading" secondItem="dCh-Wr-NM9" secondAttribute="leading" id="oqP-yW-SPK"/>
+                            <constraint firstItem="EhH-Tc-l5o" firstAttribute="baseline" secondItem="kRM-ni-CwN" secondAttribute="baseline" id="ovy-mm-hx0"/>
+                            <constraint firstItem="iXR-kA-6lR" firstAttribute="leading" secondItem="L2w-hf-Gr5" secondAttribute="leading" id="tX1-QT-kTO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BM6-y7-Ndz"/>
+                    </view>
+                    <connections>
+                        <outlet property="dayOftheWeekLabel" destination="iXR-kA-6lR" id="PGi-OZ-Ixb"/>
+                        <outlet property="humidityLabel" destination="kRM-ni-CwN" id="ryq-zM-PuX"/>
+                        <outlet property="pressureLabel" destination="1WZ-Iy-bK9" id="Kwi-Wy-8K1"/>
+                        <outlet property="temperatureLabel" destination="L2w-hf-Gr5" id="Mzf-a2-lSH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Idl-jb-qpa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3216.8000000000002" y="-510.49475262368821"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gcq-So-4iE">

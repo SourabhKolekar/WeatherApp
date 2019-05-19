@@ -20,6 +20,7 @@
 		5378CA602291C9CF00B26DCB /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378CA5F2291C9CF00B26DCB /* WeatherViewController.swift */; };
 		5378CA622291CEBF00B26DCB /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378CA612291CEBF00B26DCB /* ForecastCell.swift */; };
 		5378CA642291D79500B26DCB /* ForecastWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378CA632291D79500B26DCB /* ForecastWeather.swift */; };
+		5378CA662291EC3300B26DCB /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378CA652291EC3300B26DCB /* DetailsViewController.swift */; };
 		B4646E86625A97941985DFF5 /* Pods_weatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C06BDA5EE75679D0D3966DB0 /* Pods_weatherApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		5378CA5F2291C9CF00B26DCB /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		5378CA612291CEBF00B26DCB /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
 		5378CA632291D79500B26DCB /* ForecastWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeather.swift; sourceTree = "<group>"; };
+		5378CA652291EC3300B26DCB /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		C06BDA5EE75679D0D3966DB0 /* Pods_weatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				5378CA5F2291C9CF00B26DCB /* WeatherViewController.swift */,
+				5378CA652291EC3300B26DCB /* DetailsViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				530D1A132290563A005DB7A0 /* weatherApi.swift in Sources */,
 				531974C622901AA100DED237 /* AppDelegate.swift in Sources */,
 				5308FDA4229166B100EE0308 /* endPoint.swift in Sources */,
+				5378CA662291EC3300B26DCB /* DetailsViewController.swift in Sources */,
 				5378CA5E2291BC2C00B26DCB /* extensions.swift in Sources */,
 				5378CA622291CEBF00B26DCB /* ForecastCell.swift in Sources */,
 				5378CA642291D79500B26DCB /* ForecastWeather.swift in Sources */,

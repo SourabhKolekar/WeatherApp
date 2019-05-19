@@ -29,6 +29,7 @@ class WeatherViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        forecastArray.removeAll()
         downloadForecastWeatherData {
             print("data downloaded")
         }
@@ -73,5 +74,17 @@ extension WeatherViewController:UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return forecastArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+    
+        performSegue(withIdentifier: "showdetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? DetailsViewController{
+            destination.weatherDetails = forecastArray[(tableview.indexPathForSelectedRow?.row)!]
+        }
     }
 }

@@ -32,7 +32,7 @@ class ForecastCell: UITableViewCell {
         
 //        NSString(format:""\(Int(forecastData.temp))"%@", "\u{00B0}")
 //        self.forecastTemperature.text="\(Int(forecastData.temp))"
-        self.forecastTemperature.text="\(Int(forecastData.temp))"
+        self.forecastTemperature.text="\(Int(forecastData.temp))"+"\u{00B0}"+"C"
         
     }
 
