@@ -15,6 +15,7 @@
 		531974CB22901AA100DED237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531974C922901AA100DED237 /* Main.storyboard */; };
 		531974CD22901AA300DED237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 531974CC22901AA300DED237 /* Assets.xcassets */; };
 		531974D022901AA300DED237 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531974CE22901AA300DED237 /* LaunchScreen.storyboard */; };
+		5376473722947E5800181482 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5376473622947E5800181482 /* Location.swift */; };
 		5378CA5C2291B10800B26DCB /* extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378CA5B2291B10800B26DCB /* extras.swift */; };
 		5378CA5E2291BC2C00B26DCB /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378CA5D2291BC2C00B26DCB /* extensions.swift */; };
 		5378CA602291C9CF00B26DCB /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378CA5F2291C9CF00B26DCB /* WeatherViewController.swift */; };
@@ -37,6 +38,7 @@
 		531974CC22901AA300DED237 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		531974CF22901AA300DED237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		531974D122901AA300DED237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5376473622947E5800181482 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5378CA5B2291B10800B26DCB /* extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extras.swift; sourceTree = "<group>"; };
 		5378CA5D2291BC2C00B26DCB /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		5378CA5F2291C9CF00B26DCB /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				5378CA632291D79500B26DCB /* ForecastWeather.swift */,
+				5376473622947E5800181482 /* Location.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -242,12 +245,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-weatherApp/Pods-weatherApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -293,6 +298,7 @@
 				5378CA5C2291B10800B26DCB /* extras.swift in Sources */,
 				5378CA602291C9CF00B26DCB /* WeatherViewController.swift in Sources */,
 				5308FDA622916FED00EE0308 /* weatherApiClient.swift in Sources */,
+				5376473722947E5800181482 /* Location.swift in Sources */,
 				530D1A152290604D005DB7A0 /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

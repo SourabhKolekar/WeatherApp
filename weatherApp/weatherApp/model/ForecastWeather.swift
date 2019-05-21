@@ -7,8 +7,11 @@
 //
 
 import Foundation
+import SwiftyJSON
+import Alamofire
 
 class ForecastWeather{
+    private var _cityName:String!
     private var _date:String!
     private var _temp:Double!
     private var _pressure: Double!
@@ -20,6 +23,14 @@ class ForecastWeather{
         }
         return _date
     }
+
+    var cityName:String{
+        if _cityName==nil{
+            _cityName=""
+        }
+        return _cityName
+    }
+
     
     
     var temp:Double{
@@ -72,4 +83,6 @@ class ForecastWeather{
             self._date="\(rawDate.dayOfTheWeek())"
         }
     }
+    
+    
 }
