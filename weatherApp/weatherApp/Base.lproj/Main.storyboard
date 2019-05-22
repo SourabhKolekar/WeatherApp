@@ -65,23 +65,33 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="5 Days" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="30a-C4-51Q">
-                                <rect key="frame" x="311.5" y="113" width="48.5" height="18"/>
+                                <rect key="frame" x="311" y="113" width="49" height="18"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="days" translatesAutoresizingMaskIntoConstraints="NO" id="fWJ-Tv-EKw">
-                                <rect key="frame" x="277.5" y="113" width="24" height="24"/>
+                                <rect key="frame" x="277" y="113" width="24" height="24"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUQ-uI-24O">
+                                <rect key="frame" x="15" y="106" width="70" height="32"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
+                                <state key="normal" title="Favorites"/>
+                                <connections>
+                                    <action selector="favoriteBtnPressed:" destination="3bj-yP-Ptd" eventType="touchUpInside" id="7gJ-ZF-XMH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.8388119777647236" green="0.87115912508160132" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4OG-qI-Oc5" firstAttribute="centerX" secondItem="hpF-E0-gnd" secondAttribute="centerX" id="4q1-7S-g1d"/>
                             <constraint firstItem="7eM-r7-vRN" firstAttribute="bottom" secondItem="gln-EJ-O4h" secondAttribute="bottom" id="Aml-wp-b3u"/>
+                            <constraint firstItem="ZUQ-uI-24O" firstAttribute="leading" secondItem="gln-EJ-O4h" secondAttribute="leading" constant="15" id="Obs-bp-4cR"/>
                             <constraint firstItem="7eM-r7-vRN" firstAttribute="leading" secondItem="hpF-E0-gnd" secondAttribute="leading" id="aGu-gE-h4j"/>
                             <constraint firstItem="7eM-r7-vRN" firstAttribute="top" secondItem="fWJ-Tv-EKw" secondAttribute="bottom" constant="10" id="c3Z-2h-zRS"/>
                             <constraint firstItem="30a-C4-51Q" firstAttribute="top" secondItem="4OG-qI-Oc5" secondAttribute="bottom" constant="10" id="eRn-8n-AV1"/>
                             <constraint firstItem="gln-EJ-O4h" firstAttribute="trailing" secondItem="30a-C4-51Q" secondAttribute="trailing" constant="15" id="eux-dH-Y58"/>
+                            <constraint firstItem="ZUQ-uI-24O" firstAttribute="baseline" secondItem="30a-C4-51Q" secondAttribute="baseline" id="f10-lH-w7h"/>
                             <constraint firstItem="30a-C4-51Q" firstAttribute="leading" secondItem="fWJ-Tv-EKw" secondAttribute="trailing" constant="10" id="jYi-b9-F9v"/>
                             <constraint firstItem="4OG-qI-Oc5" firstAttribute="top" secondItem="gln-EJ-O4h" secondAttribute="top" constant="10" id="pzp-xL-NsI"/>
                             <constraint firstItem="7eM-r7-vRN" firstAttribute="centerX" secondItem="4OG-qI-Oc5" secondAttribute="centerX" id="tPG-xs-78r"/>
@@ -95,6 +105,7 @@
                         <outlet property="forecastDaysPickerText" destination="30a-C4-51Q" id="www-3Z-YtC"/>
                         <outlet property="tableview" destination="7eM-r7-vRN" id="zWc-Gt-FS3"/>
                         <segue destination="CXT-Uu-Awn" kind="show" identifier="showdetails" id="o9c-G9-ySW"/>
+                        <segue destination="4yc-dl-eFp" kind="show" identifier="showFavorites" id="t59-9U-N7M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LGw-UI-irH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -189,6 +200,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Idl-jb-qpa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3216.8000000000002" y="-510.49475262368821"/>
+        </scene>
+        <!--Favorites View Controller-->
+        <scene sceneID="VZn-xb-WCZ">
+            <objects>
+                <viewController id="4yc-dl-eFp" customClass="FavoritesViewController" customModule="weatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sTP-ry-OIF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="VYO-8O-lVo"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Q1-Ku-xdw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3217" y="263"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gcq-So-4iE">

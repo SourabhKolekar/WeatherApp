@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		530801D52295BE1700202343 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530801D42295BE1600202343 /* FavoritesViewController.swift */; };
 		5308FDA4229166B100EE0308 /* endPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5308FDA3229166B100EE0308 /* endPoint.swift */; };
 		5308FDA622916FED00EE0308 /* weatherApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5308FDA522916FED00EE0308 /* weatherApiClient.swift */; };
 		530D1A132290563A005DB7A0 /* weatherApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530D1A122290563A005DB7A0 /* weatherApi.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		38920B705C207A4D768BB299 /* Pods-weatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherApp.debug.xcconfig"; path = "Target Support Files/Pods-weatherApp/Pods-weatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		38A1057272A36EEFE74CABC1 /* Pods-weatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherApp.release.xcconfig"; path = "Target Support Files/Pods-weatherApp/Pods-weatherApp.release.xcconfig"; sourceTree = "<group>"; };
+		530801D42295BE1600202343 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		5308FDA3229166B100EE0308 /* endPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = endPoint.swift; sourceTree = "<group>"; };
 		5308FDA522916FED00EE0308 /* weatherApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherApiClient.swift; sourceTree = "<group>"; };
 		530D1A122290563A005DB7A0 /* weatherApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherApi.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			children = (
 				5378CA5F2291C9CF00B26DCB /* WeatherViewController.swift */,
 				5378CA652291EC3300B26DCB /* DetailsViewController.swift */,
+				530801D42295BE1600202343 /* FavoritesViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				530801D52295BE1700202343 /* FavoritesViewController.swift in Sources */,
 				530D1A132290563A005DB7A0 /* weatherApi.swift in Sources */,
 				531974C622901AA100DED237 /* AppDelegate.swift in Sources */,
 				5308FDA4229166B100EE0308 /* endPoint.swift in Sources */,

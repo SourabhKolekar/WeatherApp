@@ -172,6 +172,13 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    
+    @IBAction func favoriteBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: "showFavorites", sender: self)
+    }
+    
+    
+    
 }
 
 extension WeatherViewController:UITableViewDelegate,UITableViewDataSource
@@ -197,9 +204,21 @@ extension WeatherViewController:UITableViewDelegate,UITableViewDataSource
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? DetailsViewController{
-            destination.weatherDetails = forecastArray[(tableview.indexPathForSelectedRow?.row)!]
+        if(segue.identifier=="showdetails"){
+            if let destination = segue.destination as? DetailsViewController{
+                destination.weatherDetails = forecastArray[(tableview.indexPathForSelectedRow?.row)!]
+            }
         }
+        else if (segue.identifier=="showFavorites")
+        {
+            var VC2 : FavoritesViewController = (segue.destination as? FavoritesViewController)!
+            do {
+                // pass data if any
+            }
+            
+        }
+        
+        
     }
 }
 
