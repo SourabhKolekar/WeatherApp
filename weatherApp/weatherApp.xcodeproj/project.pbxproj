@@ -23,6 +23,8 @@
 		5378CA622291CEBF00B26DCB /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378CA612291CEBF00B26DCB /* ForecastCell.swift */; };
 		5378CA642291D79500B26DCB /* ForecastWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378CA632291D79500B26DCB /* ForecastWeather.swift */; };
 		5378CA662291EC3300B26DCB /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378CA652291EC3300B26DCB /* DetailsViewController.swift */; };
+		53ECD2AA2295D5410073A774 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECD2A92295D5410073A774 /* FavoriteCell.swift */; };
+		53ECD2AE2295DB040073A774 /* favoriteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECD2AD2295DB040073A774 /* favoriteData.swift */; };
 		B4646E86625A97941985DFF5 /* Pods_weatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C06BDA5EE75679D0D3966DB0 /* Pods_weatherApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		5378CA612291CEBF00B26DCB /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
 		5378CA632291D79500B26DCB /* ForecastWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeather.swift; sourceTree = "<group>"; };
 		5378CA652291EC3300B26DCB /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		53ECD2A92295D5410073A774 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		53ECD2AD2295DB040073A774 /* favoriteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoriteData.swift; sourceTree = "<group>"; };
 		C06BDA5EE75679D0D3966DB0 /* Pods_weatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -91,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				5378CA612291CEBF00B26DCB /* ForecastCell.swift */,
+				53ECD2A92295D5410073A774 /* FavoriteCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 			children = (
 				5378CA632291D79500B26DCB /* ForecastWeather.swift */,
 				5376473622947E5800181482 /* Location.swift */,
+				53ECD2AD2295DB040073A774 /* favoriteData.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -181,6 +187,7 @@
 				531974BF22901AA100DED237 /* Frameworks */,
 				531974C022901AA100DED237 /* Resources */,
 				C422216BB72415503BFC3876 /* [CP] Embed Pods Frameworks */,
+				2B79C0528E8575C0B7733467 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -238,6 +245,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2B79C0528E8575C0B7733467 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-weatherApp/Pods-weatherApp-resources.sh",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-weatherApp/Pods-weatherApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C422216BB72415503BFC3876 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -291,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53ECD2AE2295DB040073A774 /* favoriteData.swift in Sources */,
 				530801D52295BE1700202343 /* FavoritesViewController.swift in Sources */,
 				530D1A132290563A005DB7A0 /* weatherApi.swift in Sources */,
 				531974C622901AA100DED237 /* AppDelegate.swift in Sources */,
@@ -300,6 +330,7 @@
 				5378CA622291CEBF00B26DCB /* ForecastCell.swift in Sources */,
 				5378CA642291D79500B26DCB /* ForecastWeather.swift in Sources */,
 				5378CA5C2291B10800B26DCB /* extras.swift in Sources */,
+				53ECD2AA2295D5410073A774 /* FavoriteCell.swift in Sources */,
 				5378CA602291C9CF00B26DCB /* WeatherViewController.swift in Sources */,
 				5308FDA622916FED00EE0308 /* weatherApiClient.swift in Sources */,
 				5376473722947E5800181482 /* Location.swift in Sources */,
