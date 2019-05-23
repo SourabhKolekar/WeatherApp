@@ -199,12 +199,7 @@ extension FavoritesViewController:UITableViewDelegate,UITableViewDataSource
             self.temperatureLocationArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             print(self.temperatureLocationArray)
-            
-            
         }
-        
-        
-        
         
         return [delete]
     }
