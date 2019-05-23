@@ -203,14 +203,10 @@ extension FavoritesViewController:UITableViewDelegate,UITableViewDataSource
             
         }
         
-        let share = UITableViewRowAction(style: .default, title: "Share") { (action, indexPath) in
-            // share item at indexPath
-            print("I want to share: \(self.temperatureLocationArray[indexPath.row])")
-        }
         
-        share.backgroundColor = UIColor.lightGray
         
-        return [delete, share]
+        
+        return [delete]
     }
     
     
