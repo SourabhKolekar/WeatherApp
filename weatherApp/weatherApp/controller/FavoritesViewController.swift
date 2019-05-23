@@ -10,6 +10,7 @@ import UIKit
 import GooglePlaces
 import Alamofire
 import SwiftyJSON
+import SQLite
 
 class FavoritesViewController: UIViewController {
 
@@ -17,17 +18,88 @@ class FavoritesViewController: UIViewController {
     @IBOutlet weak var placeTextField: UITextField!
     
     
-    //variables
+    //variables and constants
     var locationArray=[Location]()
-    
     var temperatureLocationArray=[Location]()
+    var allTempLocArray=[Location]()
+
     
+    //DB Info
+    var db: Connection?
+
+    let tblLocation = Table("location")
+    let dbLocationName = Expression<String>("locationName")
+    let dbLocationLatitude = Expression<Double>("latitude")
+    let dbLocationLongitude = Expression<Double>("longitude")
+   
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         callDelegates()
+
+        dbSetup()
+
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let rowCount=dbSelectOperation()
+        if(rowCount>0)
+        {
+            
+            print ("data available in the database")
+
+            //downloading weather data for the all information in database
+            for loc in locationArray{
+                downloadCurrentTemperatureData(latInfo: loc.latitude, longInfo: loc.longitude) {
+                    print ("loop data download")
+                }
+            }
+            self.favTableView.reloadData()
+        }
+        else
+        {
+            print ("database empty")
+        }
+    }
+    
+    func dbSelectOperation() -> Int
+    {
+        var count=0
+        do{
+        for location in try db!.prepare(tblLocation) {
+            print("location: \(location[dbLocationName]), lat: \(location[dbLocationLatitude]), long: \(location[dbLocationLongitude])")
+       
+            let tempLocation = Location()
+            tempLocation.locationName=location[dbLocationName]
+            tempLocation.latitude=location[dbLocationLatitude]
+            tempLocation.longitude=location[dbLocationLongitude]
+            
+            locationArray.append(tempLocation)
+                count=count+1
+            }
+        }
+        catch {
+            print ("selection error: \(error)")
+        }
+    return count
+    }
+    
+    func dbSetup()
+    {
+        let databaseFileName = "db.sqlite3"
+        let databaseFilePath = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(databaseFileName)"
+        db = try! Connection(databaseFilePath)
+
+        
+        try! db!.run(tblLocation.create(ifNotExists: true) { t in
+            t.column(dbLocationName)
+            t.column(dbLocationLatitude)
+            t.column(dbLocationLongitude)
+        })
     }
     
     func callDelegates()
@@ -45,42 +117,8 @@ class FavoritesViewController: UIViewController {
         present(acController, animated: true, completion: nil)
     }
     
-    
-    func downloadCurrentTemperatureDataForAll(completed: @escaping downloadCompletionHandler)  {
-        
-        for item in locationArray{
- 
-            var city:String!
-            var temp:Double!
 
-            let currentWeather_API_URL="https://api.openweathermap.org/data/2.5/weather?lat=-\(item.latitude!)&lon=\(item.longitude!)&appid=b1c7bd83b1ca43dc4ffea507d5aea544"
-
-            
-            Alamofire.request(currentWeather_API_URL).responseJSON { (response) in
- 
-                //clearing array for storing new data
-                self.temperatureLocationArray.removeAll()
-                
-                let result=response.result
-                let json=JSON(result.value)
-                city=json["name"].stringValue
-                let downloadTemp=json["main"]["temp"].double
-                temp = (downloadTemp!-273.15).rounded(toPlaces: 0)
-                
-                let tempLocation=Location()
-                tempLocation.locationName=city
-                tempLocation.temperature=temp
-                
-                //adding new information data to array
-                self.temperatureLocationArray.append(tempLocation)
-            }
-        }
-        
-        self.favTableView.reloadData()
-        completed()
-    }
-    
-    
+    // function for downloading data from the api
     func downloadCurrentTemperatureData(latInfo:Double!,longInfo:Double!, completed: @escaping downloadCompletionHandler)  {
         
         print ("before downlaod lat: \(latInfo!) long:\(longInfo!)")
@@ -109,8 +147,6 @@ class FavoritesViewController: UIViewController {
                     print ("place: \(item.locationName!)")
                     print ("temperature: \(item.temperature!)")
                 }
-
-        
                 self.favTableView.reloadData()
         completed()
         }
@@ -154,6 +190,15 @@ extension FavoritesViewController: GMSAutocompleteViewControllerDelegate {
         
         self.locationArray.append(location)         //adding new location to the location array
         self.placeTextField.text=""                 //clearing place text field
+        
+        //inserting data to the sqlite database
+        do {
+            let rowid = try db!.run(tblLocation.insert(or: .replace, dbLocationName <- place.name!,dbLocationLatitude <- place.coordinate.latitude, dbLocationLongitude <- place.coordinate.longitude))
+            print("Row inserted successfully id: \(rowid)")
+        } catch {
+            print("insertion failed: \(error)")
+        }
+
         
         
         downloadCurrentTemperatureData(latInfo: place.coordinate.latitude,longInfo: place.coordinate.longitude){
