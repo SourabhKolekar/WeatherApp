@@ -41,17 +41,24 @@ class FavoritesViewController: UIViewController {
         callDelegates()
 
         dbSetup()
+        
+        reloadDataFromDb()
 
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
+    func reloadDataFromDb()
+    {
         let rowCount=dbSelectOperation()
         if(rowCount>0)
         {
             
             print ("data available in the database")
-
+            
             //downloading weather data for the all information in database
             for loc in locationArray{
                 downloadCurrentTemperatureData(latInfo: loc.latitude, longInfo: loc.longitude) {
@@ -171,6 +178,42 @@ extension FavoritesViewController:UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return temperatureLocationArray.count
     }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            // delete item at indexPath
+            
+            //remove from db
+            do {
+                let deleteLocation=self.tblLocation.filter(self.dbLocationName==self.temperatureLocationArray[indexPath.row].locationName)
+                if try self.db!.run(deleteLocation.delete()) > 0 {
+                    print("deleted successfully")
+                } else {
+                    print("item for delete not found")
+                }
+            } catch {
+                print("delete failed: \(error)")
+            }
+            
+            //remove from index path
+            self.temperatureLocationArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            print(self.temperatureLocationArray)
+            
+            
+        }
+        
+        let share = UITableViewRowAction(style: .default, title: "Share") { (action, indexPath) in
+            // share item at indexPath
+            print("I want to share: \(self.temperatureLocationArray[indexPath.row])")
+        }
+        
+        share.backgroundColor = UIColor.lightGray
+        
+        return [delete, share]
+    }
+    
+    
 }
 
 

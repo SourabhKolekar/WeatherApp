@@ -108,9 +108,16 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
             currentLocation=locationManager.location
 
             // pass location coordinates to API
-            Location.sharedInstance.latitude=currentLocation.coordinate.latitude
-            Location.sharedInstance.longitude=currentLocation.coordinate.longitude
+            // todo uncomment later
+//            Location.sharedInstance.latitude=currentLocation.coordinate.latitude
+//            Location.sharedInstance.longitude=currentLocation.coordinate.longitude
 
+            
+            //todo comment later
+            Location.sharedInstance.latitude = -37.814
+            Location.sharedInstance.longitude = 144.96332
+
+            
             print ("selected days \(selectedDays)")
             Location.sharedInstance.forecastDays=selectedDays
 
@@ -202,6 +209,8 @@ extension WeatherViewController:UITableViewDelegate,UITableViewDataSource
     
         performSegue(withIdentifier: "showdetails", sender: self)
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier=="showdetails"){
