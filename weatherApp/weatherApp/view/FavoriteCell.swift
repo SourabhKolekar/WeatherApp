@@ -14,6 +14,7 @@ class FavoriteCell: UITableViewCell {
     
     @IBOutlet weak var locationLabel: UILabel!
     
+    @IBOutlet weak var temperatureLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,10 +27,12 @@ class FavoriteCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configureFavCell(temp:Int, Location:String)
+    func configureFavCell(locationData: Location)
     {
     
-        self.locationLabel.text = Location
+        self.locationLabel.text = locationData.locationName!
+        self.temperatureLabel.text="\(Int(locationData.temperature))"+"\u{00B0}"+"C"
+        
         
     }
     

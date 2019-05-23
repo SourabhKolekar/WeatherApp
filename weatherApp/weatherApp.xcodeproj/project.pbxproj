@@ -24,7 +24,6 @@
 		5378CA642291D79500B26DCB /* ForecastWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378CA632291D79500B26DCB /* ForecastWeather.swift */; };
 		5378CA662291EC3300B26DCB /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378CA652291EC3300B26DCB /* DetailsViewController.swift */; };
 		53ECD2AA2295D5410073A774 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECD2A92295D5410073A774 /* FavoriteCell.swift */; };
-		53ECD2AE2295DB040073A774 /* favoriteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECD2AD2295DB040073A774 /* favoriteData.swift */; };
 		B4646E86625A97941985DFF5 /* Pods_weatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C06BDA5EE75679D0D3966DB0 /* Pods_weatherApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +49,6 @@
 		5378CA632291D79500B26DCB /* ForecastWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeather.swift; sourceTree = "<group>"; };
 		5378CA652291EC3300B26DCB /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		53ECD2A92295D5410073A774 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
-		53ECD2AD2295DB040073A774 /* favoriteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoriteData.swift; sourceTree = "<group>"; };
 		C06BDA5EE75679D0D3966DB0 /* Pods_weatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -152,7 +150,6 @@
 			children = (
 				5378CA632291D79500B26DCB /* ForecastWeather.swift */,
 				5376473622947E5800181482 /* Location.swift */,
-				53ECD2AD2295DB040073A774 /* favoriteData.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -320,7 +317,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53ECD2AE2295DB040073A774 /* favoriteData.swift in Sources */,
 				530801D52295BE1700202343 /* FavoritesViewController.swift in Sources */,
 				530D1A132290563A005DB7A0 /* weatherApi.swift in Sources */,
 				531974C622901AA100DED237 /* AppDelegate.swift in Sources */,
