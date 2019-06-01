@@ -132,7 +132,7 @@ class FavoritesViewController: UIViewController {
             var city:String!
             var temp:Double!
             
-            let currentWeather_API_URL_L="https://api.openweathermap.org/data/2.5/weather?lat=\(latInfo!)&lon=\(longInfo!)&appid=b1c7bd83b1ca43dc4ffea507d5aea544"
+            let currentWeather_API_URL_L="https://api.openweathermap.org/data/2.5/weather?lat=\(latInfo!)&lon=\(longInfo!)&appid=**************"
             
         print(currentWeather_API_URL_L)
         
