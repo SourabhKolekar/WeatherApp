@@ -150,7 +150,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     func downloadForecastWeatherData(completed: @escaping downloadCompletionHandler) {
 
 
-        let weatherForecast_API_URL_Local="https://api.openweathermap.org/data/2.5/forecast/daily?lat=\(Location.sharedInstance.latitude!)&lon=\(Location.sharedInstance.longitude!)&cnt=\(selectedDays)&appid=b1c7bd83b1ca43dc4ffea507d5aea544"
+        let weatherForecast_API_URL_Local="https://api.openweathermap.org/data/2.5/forecast/daily?lat=\(Location.sharedInstance.latitude!)&lon=\(Location.sharedInstance.longitude!)&cnt=\(selectedDays)&appid=*******************"
 
         print(weatherForecast_API_URL)
         print("local \(weatherForecast_API_URL_Local)")
